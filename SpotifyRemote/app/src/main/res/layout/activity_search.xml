@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8sp"
+    tools:context="com.example.spotifyremote.MainActivity">
+
+    <EditText
+        android:id="@+id/et_search_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:hint="@string/search_box_hint"/>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_button_text"
+        android:textSize="22sp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_albums"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/auth_error" android:visibility="invisible"/>
+        <include layout="@layout/loading_error" android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/ll_no_results"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_error_outline"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_no_results_title"
+                android:textSize="30sp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_no_results_description"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="32dp"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>
